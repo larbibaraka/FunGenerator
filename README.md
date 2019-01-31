@@ -30,4 +30,5 @@ you will learn by following this tutorial a lot of stuff
 - website to read more about js : <https://www.w3schools.com/js/>
 - follow me on twitter : <https://twitter.com/laridev2016>
 - find me on linkedin  : <https://dz.linkedin.com/in/larbi-baraka-b36651a7>   
+- images are provided from <https://www.freepik.com>
 

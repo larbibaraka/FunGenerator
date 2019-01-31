@@ -1,0 +1,30 @@
+body{
+    background: #457fca;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #5691c8, #457fca);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #5691c8, #457fca); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.intro {
+    background: transparent;
+   
+  
+
+    
+}
+.intro p{
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+    font-style: normal;
+    font-family : Arial;
+}
+
+ footer{
+     margin-top: 5%;
+ }
+
+footer p ,  a  {
+    color: white;
+    text-align: center;
+}
+ 
