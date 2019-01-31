@@ -1,4 +1,4 @@
-# FunGenerator
+# EverydayTools
 small app made by only Vanilla JS for youtube chanel
 
 find out videos on : <https://www.youtube.com/channel/UCbEJ7XPE8egXNCO2iTDqr7Q>
