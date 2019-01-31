@@ -17,11 +17,12 @@ you will learn by following this tutorial a lot of stuff
 * super fun time xD
 
 ### how to use this repo :
-=> if you have git installed on your computer  
+  if you have git installed on your computer  
 - 1 : just do : `git clone https://github.com/larbibaraka/FunGenerator.git`
 - 2 : cd FunGenerator
 - 3 : open index.js
-=> if you don't have git installed on your computer 
+
+  if you don't have git installed on your computer 
 - click here => <https://github.com/larbibaraka/FunGenerator/archive/master.zip> 
 - unzip and follow step 2 and 3 
 
