@@ -48,3 +48,16 @@ body {
     -moz-box-shadow: 4px 4px 5px 0px rgba(219,219,219,1);
     box-shadow: 4px 4px 5px 0px rgba(219,219,219,1);
 }
+
+.password-type{
+    padding: 2%;
+    
+}
+.password-type .custom-radio {
+     margin-top: 8%;
+}  
+
+.password-type .custom-radio .custom-control-label {
+   font-weight: bold;
+   font-size: 1.2em;
+} 
