@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
 body {
     background: #f9fbfd;
+    font-family: 'Lato', sans-serif;
 }
 
 .intro-div {
@@ -9,6 +11,7 @@ body {
 .passwordArea {
     height: 10%;
     padding: 2%;
+
     -webkit-box-shadow: 4px 4px 5px 0px rgba(219,219,219,1);
     -moz-box-shadow: 4px 4px 5px 0px rgba(219,219,219,1);
     box-shadow: 4px 4px 5px 0px rgba(219,219,219,1);
@@ -42,6 +45,7 @@ body {
 }
 .ControlArea {
     margin-top: 5%;
+    border: 1px solid #eee;
     height: 10%;
     padding: 6%;
     -webkit-box-shadow: 4px 4px 5px 0px rgba(219,219,219,1);
@@ -53,11 +57,17 @@ body {
     padding: 2%;
     
 }
-.password-type .custom-radio {
+.password-type .custom-radio,
+.password-type .custom-checkbox{
      margin-top: 8%;
 }  
 
-.password-type .custom-radio .custom-control-label {
-   font-weight: bold;
+.password-type .custom-radio .custom-control-label,
+.password-type .custom-checkbox .custom-control-label{
+   font-weight:400;
    font-size: 1.2em;
 } 
+
+footer{
+    margin-top: 2%;
+}
