@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+body {
+    background: #f9fbfd;
+    font-family: 'Lato', sans-serif;
+}
+.step-1-area{
+  height: 10%;
+  padding: 2%;
+  margin-top: 10%;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(219,219,219,1);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(219,219,219,1);
+  box-shadow: 4px 4px 5px 0px rgba(219,219,219,1);
+}
