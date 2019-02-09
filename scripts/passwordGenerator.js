@@ -18,6 +18,7 @@ let progressNumber = document.getElementById('length-number');
 let passwordText = document.getElementById('password-text');
 let progressStrength = document.getElementById('progress-strength');
 let generateNewpassword = document.getElementById('generateNewpassword');
+let copypassword        = document.getElementById('copypassword');
 let option1 = document.getElementById('radio-1');
 let option2 = document.getElementById('radio-2');
 let currentOption  = "";
@@ -73,7 +74,7 @@ option1.addEventListener('click' , function(e){
   currentOption = e.target.value;
   passwordText.value = generateNewPassword(progressBar.value, currentOption);
   
-})
+});
 
 option2.addEventListener('click', function (e) {
   console.log('option2 ; ', e.target.value)
@@ -84,14 +85,22 @@ option2.addEventListener('click', function (e) {
   numbers.setAttribute('checked' , 'checked');
   symbols.setAttribute('checked' , 'checked');
   getArrayOfChars();
-
   currentOption = e.target.value;
   passwordText.value = generateNewPassword(progressBar.value, currentOption);
-})
+});
 
 generateNewpassword.addEventListener('click' , function(){
   passwordText.value = generateNewPassword(progressBar.value, currentOption);
-})
+});
+
+
+  let clipboard = new ClipboardJS(copypassword);
+  
+  clipboard.on('success', function(e) {
+    passwordText.value = e.text;
+    console.log(e.text)
+  });
+ 
 
 /**
  * this function is used to generate new password
