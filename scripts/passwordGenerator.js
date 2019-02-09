@@ -93,8 +93,7 @@ generateNewpassword.addEventListener('click' , function(){
   passwordText.value = generateNewPassword(progressBar.value, currentOption);
 });
 
-
-  let clipboard = new ClipboardJS(copypassword);
+ let clipboard = new ClipboardJS(copypassword);
   
   clipboard.on('success', function(e) {
     passwordText.value = e.text;
