@@ -10,76 +10,122 @@
  *      
  */
 
- console.log('##################### welecome to password generator app #############################');
+console.log('##################### welecome to password generator app #############################');
 
- // step 1 :  get the strength
-
-let progressBar    = document.getElementById('length-progress');
+// step 1 :  get the strength
+let progressBar = document.getElementById('length-progress');
 let progressNumber = document.getElementById('length-number');
-let passwordText   = document.getElementById('password-text');
+let passwordText = document.getElementById('password-text');
 let progressStrength = document.getElementById('progress-strength');
-progressBar.addEventListener('change', function(e){
+let option1 = document.getElementById('radio-1');
+let option2 = document.getElementById('radio-2');
+let currentOption  = "";
+let uppercase =  document.getElementById('uppercase');
+let lowercase =  document.getElementById('lowercase');
+let numbers =  document.getElementById('numbers');
+let symbols =  document.getElementById('symbols');
+let arrayOfChars = [];
+let numbersChars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+let upperCaseChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+let lowerCaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let symbolsChars = ["~", "!", "@", "-", "#", "$"];
+
+
+  //this block gets excuted once
+  getArrayOfChars();
+  passwordText.value = generateNewPassword(5, "easy");
+
+
+
+
+progressBar.addEventListener('change', function (e) {
   let value = e.target.value;
   console.log(e.target.value)
   //update the progressNumber
   progressNumber.value = value;
   //update text
-  passwordText.value = generateNewPassword(value);
+  passwordText.value = generateNewPassword(value, currentOption);
   //update progressbar of strength
   changeProgressBar(value);
- 
 });
 
-progressNumber.addEventListener('change', function (e)   {
+progressNumber.addEventListener('change', function (e) {
   let value = e.target.value;
   console.log(e.target.value)
   //update the progressBar
   progressBar.value = value;
   //update text
   passwordText.value = generateNewPassword(value);
-    //update progressbar of strength
-    changeProgressBar(value);
+  //update progressbar of strength
+  changeProgressBar(value, currentOption);
 });
 
-//this function gets excuted once
+option1.addEventListener('click' , function(e){
+  console.log('option1 ; ', e.target.value)
+  uppercase.setAttribute('checked' , 'checked');
+  lowercase.setAttribute('checked' , 'checked');
+   numbers.setAttribute('disabled' , 'disabled');
+  symbols.setAttribute('disabled' , 'disabled');
+  numbers.removeAttribute('checked');
+  symbols.removeAttribute('checked');
+  getArrayOfChars();
+  currentOption = e.target.value;
+  passwordText.value = generateNewPassword(progressBar.value, currentOption);
+  
+})
 
-passwordText.value = generateNewPassword(5);
+option2.addEventListener('click', function (e) {
+  console.log('option2 ; ', e.target.value)
+  uppercase.setAttribute('checked' , 'checked');
+  lowercase.setAttribute('checked' , 'checked');
+  numbers.removeAttribute('disabled');
+  symbols.removeAttribute('disabled');
+  numbers.setAttribute('checked' , 'checked');
+  symbols.setAttribute('checked' , 'checked');
+  getArrayOfChars();
+
+  currentOption = e.target.value;
+  passwordText.value = generateNewPassword(progressBar.value, currentOption);
+})
 
 
-
-
-function generateNewPassword(passwordLength){
-  let arrayOfChars = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","~","!","@","-","#","$"];
+/**
+ * this function is used to generate new password
+ * @param {int} passwordLength
+ *
+ * */
+function generateNewPassword(passwordLength) {
+   
   let password = "";
   //step 01-1  shuffle array
-  arrayOfChars = shuffle(arrayOfChars);
+  //arrayOfChars = shuffle(arrayOfChars);
   //get random password based on length
-  for(let i=0; i<passwordLength ; i++){
-    password = password + arrayOfChars[Math.floor(Math.random()*arrayOfChars.length)]
+  for (let i = 0; i < passwordLength; i++) {
+    password = password + arrayOfChars[Math.floor(Math.random() * arrayOfChars.length)]
   }
   return password;
 }
-function changeProgressBar(value){
-    if (value < 5){
-       progressStrength.style.width = "10%";
-       progressStrength.className = "progress-bar-striped bg-warning"
-      }
-    else if (value >= 6 && value < 10) {
-      progressStrength.style.width = "40%";
-      progressStrength.className = "progress-bar-striped bg-info"
-    }  
-    else if (value >= 11 && value < 20) {
-      progressStrength.style.width = "70%";
-      progressStrength.className = "progress-bar-striped bg-primary"
-    }
-    else if (value >= 21) {
-      progressStrength.style.width = "100%";
-      progressStrength.className = "progress-bar-striped bg-success"
-    }
+
+/**
+ * this function is used to change the width and the color of progress bar
+ * @param {int} value 
+ */
+function changeProgressBar(value) {
+  if (value < 5) {
+    progressStrength.style.width = "10%";
+    progressStrength.className = "progress-bar-striped bg-warning"
+  } else if (value >= 6 && value < 10) {
+    progressStrength.style.width = "40%";
+    progressStrength.className = "progress-bar-striped bg-info"
+  } else if (value >= 11 && value < 20) {
+    progressStrength.style.width = "70%";
+    progressStrength.className = "progress-bar-striped bg-primary"
+  } else if (value >= 21) {
+    progressStrength.style.width = "100%";
+    progressStrength.className = "progress-bar-striped bg-success"
+  }
 
 }
-
-
 
 //shufle array
 /**
@@ -90,21 +136,41 @@ function changeProgressBar(value){
  */
 function shuffle(array) {
 
-	var currentIndex = array.length;
-	var temporaryValue, randomIndex;
+  var currentIndex = array.length;
+  var temporaryValue, randomIndex;
 
-	// While there remain elements to shuffle...
-	while (0 !== currentIndex) {
-		// Pick a remaining element...
-		randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex -= 1;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
 
-		// And swap it with the current element.
-		temporaryValue = array[currentIndex];
-		array[currentIndex] = array[randomIndex];
-		array[randomIndex] = temporaryValue;
-	}
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
 
-	return array;
+  return array;
 
 };
+ 
+/**
+ * this function is used to return the array of chars based on selection of user
+ */
+function getArrayOfChars(){
+  arrayOfChars = [];
+  if(uppercase.checked){
+    
+    arrayOfChars = arrayOfChars.concat(upperCaseChars)
+  }
+  if(lowercase.checked){
+    arrayOfChars = arrayOfChars.concat(lowerCaseChars)
+  }
+  if(numbers.checked){
+    arrayOfChars = arrayOfChars.concat(numbersChars)
+  }
+  if(symbols.checked){
+      arrayOfChars = arrayOfChars.concat(symbolsChars)
+  }
+}
