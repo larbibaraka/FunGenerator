@@ -17,6 +17,7 @@ let progressBar = document.getElementById('length-progress');
 let progressNumber = document.getElementById('length-number');
 let passwordText = document.getElementById('password-text');
 let progressStrength = document.getElementById('progress-strength');
+let generateNewpassword = document.getElementById('generateNewpassword');
 let option1 = document.getElementById('radio-1');
 let option2 = document.getElementById('radio-2');
 let currentOption  = "";
@@ -88,6 +89,9 @@ option2.addEventListener('click', function (e) {
   passwordText.value = generateNewPassword(progressBar.value, currentOption);
 })
 
+generateNewpassword.addEventListener('click' , function(){
+  passwordText.value = generateNewPassword(progressBar.value, currentOption);
+})
 
 /**
  * this function is used to generate new password
