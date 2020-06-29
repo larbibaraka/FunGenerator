@@ -27,9 +27,9 @@ let lowercase =  document.getElementById('lowercase');
 let numbers =  document.getElementById('numbers');
 let symbols =  document.getElementById('symbols');
 let arrayOfChars = [];
-let numbersChars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-let upperCaseChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-let lowerCaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let numbersChars = Array.from(Array(10).keys())
+let lowerCaseChars = Array.from(Array(26).keys()).map(value => String.fromCharCode(97 + value));
+let upperCaseChars = lowerCaseChars.map(letter => letter.toUpperCase());
 let symbolsChars = ["~", "!", "@", "-", "#", "$"];
 
 
